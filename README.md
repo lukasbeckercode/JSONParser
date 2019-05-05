@@ -16,7 +16,7 @@ https://www.youtube.com/watch?v=Vqgghm9pWe0
 The Json-File used here is created using a nodeJS app
 It runs on my personal machine and can be accessed as follows:
  &emsp; &emsp; open cmd <br/>
- cd C:\Users\Lukas\source\repos\NodeTestApp1\NodeTestApp1 <br/>
+ cd DIRECTORY OF NODE APP <br/>
  node app.js <br/>
 
 Exit: Strg+C
