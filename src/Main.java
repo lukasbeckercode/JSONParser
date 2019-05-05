@@ -54,7 +54,7 @@ public class Main {
     public static String[] getQuotes(){ //create a String Array Method
         String json = null; //empty string
         try {
-            json = getJson("http:192.168.1.114:8080/api/quote"); //Address where the Json is, ALWAYS start with http: / https:
+            json = getJson("http:192.168.1.114:8080/api/quote"); //Address where the Json is,FORMAT: http:localhost:8080/api/quote
         } catch (Exception e){
             e.printStackTrace();
         }
