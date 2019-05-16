@@ -24,13 +24,15 @@ Exit: Strg+C
 //get all the imports
 import com.google.gson.*;
 import okhttp3.*;
-import okhttp3.OkHttpClient;
 import parser.json.MyPojo;
 
 import java.io.IOException;
 
-public class Main {
-    private static OkHttpClient client = new OkHttpClient(); //create a new client, call it "client"!
+
+class Main {
+
+
+    private static final OkHttpClient client = new OkHttpClient(); //create a new client, call it "client"!
 
     public static void main(String[] args) {
         for(String str :getQuotes()) //print the entire array
@@ -40,21 +42,24 @@ public class Main {
     }
 
     //USE THIS ENTIRE METHOD; DO NOT CHANGE:
-    public static  String getJson(String url) throws IOException {
+    private static  String getJson(String url) throws IOException {
         Request request = new Request.Builder()
                 .url(url)
                 .build();
 
         try (Response response = client.newCall(request).execute()) {
+
+            //noinspection ConstantConditions
             return response.body().string();
         }
     }
 
     //This is the fun part:
-    public static String[] getQuotes(){ //create a String Array Method
+    private static String[] getQuotes(){ //create a String Array Method
         String json = null; //empty string
+        String url = "http:192.168.1.114:8080/api/quote" ; //Address where the Json is,FORMAT: http:localhost:8080/api/quote
         try {
-            json = getJson("http:192.168.1.114:8080/api/quote"); //Address where the Json is,FORMAT: http:localhost:8080/api/quote
+            json = getJson(url);
         } catch (Exception e){
             e.printStackTrace();
         }
